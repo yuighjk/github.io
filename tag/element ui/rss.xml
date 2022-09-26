@@ -9,9 +9,9 @@
         <lastBuildDate>Fri, 23 Sep 2022 20:58:25 +0800</lastBuildDate>
         <category>测试</category>
         <category>hello</category>
-        <category>javascript</category>
         <category>element ui</category>
         <category>vue</category>
+        <category>javascript</category>
         <item>
             <guid isPermalink="true">http://example.com/2022/09/23/el-select-shi-xian-dong-tai-cong-hou-tai-huo-qu-bian-li-xie-chu-xuan-xiang/</guid>
             <title>el-select实现动态从后台获取，遍历写出选项</title>
@@ -19,25 +19,25 @@
             <category>element ui</category>
             <category>vue</category>
             <pubDate>Fri, 23 Sep 2022 20:58:25 +0800</pubDate>
-            <description><![CDATA[ &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+            <description><![CDATA[ &lt;p&gt;首先，在data中声明一个值&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 
-&lt;p&gt;首先，在data中声明一个值&lt;/p&gt;
 &lt;pre class=&#34;line-numbers language-javascript&#34;&gt;&lt;code class=&#34;language-javascript&#34;&gt;&lt;span class=&#34;token function&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;{&lt;/span&gt;
     &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;{&lt;/span&gt;
       dishesInfoList&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;
-      &lt;span class=&#34;token punctuation&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;token punctuation&#34;&gt;}&lt;/span&gt;
  &lt;span class=&#34;token punctuation&#34;&gt;}&lt;/span&gt;
 &lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt; 其次，在查询遍历列表信息的接口中获取数据&lt;/p&gt;
-&lt;pre class=&#34;line-numbers language-javascript&#34;&gt;&lt;code class=&#34;language-javascript&#34;&gt; &lt;span class=&#34;token function&#34;&gt;listDishesInfo&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;queryParams&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;then&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;response &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;{&lt;/span&gt;
-        &lt;span class=&#34;token keyword&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;dishesInfoList &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; response&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;data&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
-      &lt;span class=&#34;token punctuation&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+&lt;pre class=&#34;line-numbers language-javascript&#34;&gt;&lt;code class=&#34;language-javascript&#34;&gt;&lt;span class=&#34;token function&#34;&gt;listDishesInfo&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;queryParams&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;then&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;response &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;token keyword&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;dishesInfoList &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; response&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;data&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;token punctuation&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
 &lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;之后，在el-form中写上 : data；在el-select中写上v-model（写不写都行）；&lt;br&gt;在el-option里面写上&lt;/p&gt;
-&lt;pre class=&#34;line-numbers language-javascript&#34;&gt;&lt;code class=&#34;language-javascript&#34;&gt;    v&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;item in dishesInfoList&#34;&lt;/span&gt;
-        &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;key&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;item.id&#34;&lt;/span&gt;
-        &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;value&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;item.shopId&#34;&lt;/span&gt;
-        &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;label&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;item.shopId&#34;&lt;/span&gt;
+&lt;pre class=&#34;line-numbers language-javascript&#34;&gt;&lt;code class=&#34;language-javascript&#34;&gt;v&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;item in dishesInfoList&#34;&lt;/span&gt;
+    &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;key&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;item.id&#34;&lt;/span&gt;
+    &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;value&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;item.shopId&#34;&lt;/span&gt;
+    &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;label&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;item.shopId&#34;&lt;/span&gt;
 &lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;具体代码如下：&lt;/p&gt;
 &lt;pre class=&#34;line-numbers language-javascript&#34;&gt;&lt;code class=&#34;language-javascript&#34;&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;el&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;form ref&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;form&#34;&lt;/span&gt;  &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;data&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;dishesInfoList&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;gt;&lt;/span&gt;
@@ -48,9 +48,9 @@
         @keyup&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;enter&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;native&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;handleQuery&#34;&lt;/span&gt;
     &lt;span class=&#34;token operator&#34;&gt;&amp;gt;&lt;/span&gt;
         &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;el&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;option v&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;item in dishesInfoList&#34;&lt;/span&gt;
-                    &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;key&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;item.id&#34;&lt;/span&gt;
-                    &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;value&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;item.shopId&#34;&lt;/span&gt;
-                    &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;label&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;item.shopId&#34;&lt;/span&gt;
+            &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;key&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;item.id&#34;&lt;/span&gt;
+            &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;value&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;item.shopId&#34;&lt;/span&gt;
+            &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;label&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;item.shopId&#34;&lt;/span&gt;
         &lt;span class=&#34;token operator&#34;&gt;&amp;gt;&lt;/span&gt;
         &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;el&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;option&lt;span class=&#34;token operator&#34;&gt;&amp;gt;&lt;/span&gt;
     &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;el&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;select&lt;span class=&#34;token operator&#34;&gt;&amp;gt;&lt;/span&gt;

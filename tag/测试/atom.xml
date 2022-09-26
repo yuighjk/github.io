@@ -6,9 +6,9 @@
     <updated>2022-09-17T02:43:20.091Z</updated>
     <category term="测试" />
     <category term="hello" />
-    <category term="javascript" />
     <category term="element ui" />
     <category term="vue" />
+    <category term="javascript" />
     <entry>
         <id>http://example.com/2022/09/17/hello-world/</id>
         <title>Hello World</title>

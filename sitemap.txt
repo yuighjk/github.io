@@ -8,6 +8,6 @@ http://example.com/guestbook/index.html
 http://example.com/
 http://example.com/tags/%E6%B5%8B%E8%AF%95/
 http://example.com/tags/hello/
-http://example.com/tags/javascript/
 http://example.com/tags/element-ui/
 http://example.com/tags/vue/
+http://example.com/tags/javascript/

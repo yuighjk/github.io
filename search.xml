@@ -23,6 +23,51 @@
       </tags>
   </entry>
   <entry>
+    <title>el-select实现动态从后台获取，遍历写出选项</title>
+    <url>/2022/09/23/el-select-shi-xian-dong-tai-cong-hou-tai-huo-qu-bian-li-xie-chu-xuan-xiang/</url>
+    <content><![CDATA[<p>首先，在data中声明一个值</p>
+<span id="more"></span>
+
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      dishesInfoList<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p> 其次，在查询遍历列表信息的接口中获取数据</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">listDishesInfo</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>queryParams<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>response <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>dishesInfoList <span class="token operator">=</span> response<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>之后，在el-form中写上 : data；在el-select中写上v-model（写不写都行）；<br>在el-option里面写上</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript">v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"item in dishesInfoList"</span>
+    <span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"item.id"</span>
+    <span class="token punctuation">:</span>value<span class="token operator">=</span><span class="token string">"item.shopId"</span>
+    <span class="token punctuation">:</span>label<span class="token operator">=</span><span class="token string">"item.shopId"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>具体代码如下：</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>el<span class="token operator">-</span>form ref<span class="token operator">=</span><span class="token string">"form"</span>  <span class="token punctuation">:</span>data<span class="token operator">=</span><span class="token string">"dishesInfoList"</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>el<span class="token operator">-</span>select
+        v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"dishesInfoList.shopId"</span><span class="token comment" spellcheck="true">//在这里写上</span>
+        placeholder<span class="token operator">=</span><span class="token string">"选择店铺"</span>
+        clearable
+        @keyup<span class="token punctuation">.</span>enter<span class="token punctuation">.</span>native<span class="token operator">=</span><span class="token string">"handleQuery"</span>
+    <span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>el<span class="token operator">-</span>option v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"item in dishesInfoList"</span>
+            <span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"item.id"</span>
+            <span class="token punctuation">:</span>value<span class="token operator">=</span><span class="token string">"item.shopId"</span>
+            <span class="token punctuation">:</span>label<span class="token operator">=</span><span class="token string">"item.shopId"</span>
+        <span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>option<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>select<span class="token operator">&gt;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+]]></content>
+      <tags>
+        <tag>element ui</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>this原理</title>
     <url>/2022/09/20/this-yuan-li/</url>
     <content><![CDATA[<p>this是一个指针型变量，它指向当前函数的运行环境。</p>
@@ -341,51 +386,6 @@ s1<span class="token punctuation">.</span><span class="token function">doSth</sp
 ]]></content>
       <tags>
         <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>el-select实现动态从后台获取，遍历写出选项</title>
-    <url>/2022/09/23/el-select-shi-xian-dong-tai-cong-hou-tai-huo-qu-bian-li-xie-chu-xuan-xiang/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<p>首先，在data中声明一个值</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-      dishesInfoList<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-      <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p> 其次，在查询遍历列表信息的接口中获取数据</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"> <span class="token function">listDishesInfo</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>queryParams<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>response <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>dishesInfoList <span class="token operator">=</span> response<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>之后，在el-form中写上 : data；在el-select中写上v-model（写不写都行）；<br>在el-option里面写上</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript">    v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"item in dishesInfoList"</span>
-        <span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"item.id"</span>
-        <span class="token punctuation">:</span>value<span class="token operator">=</span><span class="token string">"item.shopId"</span>
-        <span class="token punctuation">:</span>label<span class="token operator">=</span><span class="token string">"item.shopId"</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>具体代码如下：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>el<span class="token operator">-</span>form ref<span class="token operator">=</span><span class="token string">"form"</span>  <span class="token punctuation">:</span>data<span class="token operator">=</span><span class="token string">"dishesInfoList"</span><span class="token operator">&gt;</span>
-    <span class="token operator">&lt;</span>el<span class="token operator">-</span>select
-        v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"dishesInfoList.shopId"</span><span class="token comment" spellcheck="true">//在这里写上</span>
-        placeholder<span class="token operator">=</span><span class="token string">"选择店铺"</span>
-        clearable
-        @keyup<span class="token punctuation">.</span>enter<span class="token punctuation">.</span>native<span class="token operator">=</span><span class="token string">"handleQuery"</span>
-    <span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span>el<span class="token operator">-</span>option v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"item in dishesInfoList"</span>
-                    <span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"item.id"</span>
-                    <span class="token punctuation">:</span>value<span class="token operator">=</span><span class="token string">"item.shopId"</span>
-                    <span class="token punctuation">:</span>label<span class="token operator">=</span><span class="token string">"item.shopId"</span>
-        <span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>option<span class="token operator">&gt;</span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>select<span class="token operator">&gt;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-]]></content>
-      <tags>
-        <tag>element ui</tag>
-        <tag>vue</tag>
       </tags>
   </entry>
 </search>
