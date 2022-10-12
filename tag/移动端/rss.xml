@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>FeiFei • Posts by &#34;移动端&#34; tag</title>
+        <link>http://example.com</link>
+        <description>FeiFei 的博客</description>
+        <language>zh-CN</language>
+        <pubDate>Wed, 12 Oct 2022 15:02:03 +0800</pubDate>
+        <lastBuildDate>Wed, 12 Oct 2022 15:02:03 +0800</lastBuildDate>
+        <category>element ui</category>
+        <category>vue</category>
+        <category>javascript</category>
+        <category>redis</category>
+        <category>vue3</category>
+        <category>springboot</category>
+        <category>数据库</category>
+        <category>安全</category>
+        <category>TypeScript</category>
+        <category>移动端</category>
+        <category>css</category>
+        <category>element plus</category>
+        <item>
+            <guid isPermalink="true">http://example.com/2022/10/12/yi-dong-duan-1px-wen-ti-jie-jue-fang-an/</guid>
+            <title>移动端1px问题解决方案</title>
+            <link>http://example.com/2022/10/12/yi-dong-duan-1px-wen-ti-jie-jue-fang-an/</link>
+            <category>javascript</category>
+            <category>移动端</category>
+            <category>css</category>
+            <pubDate>Wed, 12 Oct 2022 15:02:03 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;产生的原因：&#34;&gt;&lt;a href=&#34;#产生的原因：&#34; class=&#34;headerlink&#34; title=&#34;产生的原因：&#34;&gt;&lt;/a&gt;产生的原因：&lt;/h1&gt;&lt;p&gt;写代码时一般使用设备独立像素来对页面布局。而在设备像素比大于1的屏幕上，我们写的1px实际上是被多个物理像素渲染，这就会出现1px在有些屏幕上看起来很粗的现象：&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+&lt;h1 id=&#34;解决方法：&#34;&gt;&lt;a href=&#34;#解决方法：&#34; class=&#34;headerlink&#34; title=&#34;解决方法：&#34;&gt;&lt;/a&gt;解决方法：&lt;/h1&gt;&lt;h2 id=&#34;小数值px&#34;&gt;&lt;a href=&#34;#小数值px&#34; class=&#34;headerlink&#34; title=&#34;小数值px&#34;&gt;&lt;/a&gt;小数值px&lt;/h2&gt;&lt;p&gt;设备像素比devicePixelRadio=2=物理像素/css像素=1px/0.5px，物理像素为1px，设置设备像素比=2，css像素设为0.5px，详情如下：&lt;br&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/6d8569f7209c489c920aea511361e6b1.png&#34; alt=&#34;在这里插入图片描述&#34;&gt;&lt;br&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/e769e277e5044965b59ee54e78308db2.png&#34; alt=&#34;在这里插入图片描述&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;缺点：
+        兼容性差，目前之余IOS8+才支持，在IOS7及其以下、安卓系统都是显示0px。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;background-image，多背景渐变&#34;&gt;&lt;a href=&#34;#background-image，多背景渐变&#34; class=&#34;headerlink&#34; title=&#34;background-image，多背景渐变&#34;&gt;&lt;/a&gt;background-image，多背景渐变&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;设置1px的渐变背景
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/91d9655f372740bfbd77901cef44b1b9.png&#34; alt=&#34;在这里插入图片描述&#34;&gt;&lt;br&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/df95fd164b0540d9b9808ca5be14e302.png&#34; alt=&#34;在这里插入图片描述&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;CSS3-box-shadow&#34;&gt;&lt;a href=&#34;#CSS3-box-shadow&#34; class=&#34;headerlink&#34; title=&#34;CSS3,box-shadow&#34;&gt;&lt;/a&gt;CSS3,box-shadow&lt;/h2&gt;&lt;pre class=&#34;line-numbers language-css&#34;&gt;&lt;code class=&#34;language-css&#34;&gt;&lt;span class=&#34;token selector&#34;&gt;&lt;span class=&#34;token class&#34;&gt;.shadow&lt;/span&gt; &lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;token property&#34;&gt;-wedit-box-shadow&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;px &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;px -&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;px &lt;span class=&#34;token function&#34;&gt;rgba&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;255&lt;/span&gt;, &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; ,&lt;span class=&#34;token number&#34;&gt;0.5&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;token property&#34;&gt;box-shadow&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;px &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;px -&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;px &lt;span class=&#34;token function&#34;&gt;rgba&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;255&lt;/span&gt;, &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; ,&lt;span class=&#34;token number&#34;&gt;0.5&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;token punctuation&#34;&gt;}&lt;/span&gt;
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/5a790dd6e9de4eceb0d3ae0086cb3d1e.png&#34; alt=&#34;在这里插入图片描述&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;缺点：
+    颜色不好配置
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;viewport与rem结合&#34;&gt;&lt;a href=&#34;#viewport与rem结合&#34; class=&#34;headerlink&#34; title=&#34;viewport与rem结合&#34;&gt;&lt;/a&gt;viewport与rem结合&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;当设备像素比=2，（中和一下，使物理像素=设备独立像素）
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;line-numbers language-javascript&#34;&gt;&lt;code class=&#34;language-javascript&#34;&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;meta name&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;viewport&#34;&lt;/span&gt; content&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/cb7c14e4c2a442398fbdba43273879b2.png&#34; alt=&#34;在这里插入图片描述&#34;&gt;&lt;/p&gt;
+&lt;p&gt;当设备像素比=3，将页面缩放1/3倍，&lt;/p&gt;
+&lt;pre class=&#34;line-numbers language-javascript&#34;&gt;&lt;code class=&#34;language-javascript&#34;&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;meta name&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;viewport&#34;&lt;/span&gt; content&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;initial-scale=0.3333333333333333, maximum-scale=0.3333333333333333, minimum-scale=0.3333333333333333, user-scalable=no&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;任意设备像素比&lt;/p&gt;
+&lt;pre class=&#34;line-numbers language-javascript&#34;&gt;&lt;code class=&#34;language-javascript&#34;&gt; &lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; scale &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt; window&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;devicePixelRatio&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; viewport &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; document&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;querySelector&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;meta[name=&#34;viewport&#34;]&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;!&lt;/span&gt;viewport&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;{&lt;/span&gt;
+                viewport &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; document&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;createElement&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;meta&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+                viewport&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;setAttribute&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;name&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;viewport&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+                window&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;document&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;head&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;appendChild&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;viewport&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;token punctuation&#34;&gt;}&lt;/span&gt;
+            viewport&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;setAttribute&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;content&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;width=device-width,user-scalable=no,initial-scale=&#39;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; scale &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;,maximum-scale=&#39;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; scale &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;,minimum-scale=&#39;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; scale&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;意味着所有页面都需要用物理像素写，不现实，可以用flexible，vm,vh来帮助适配&lt;/p&gt;
+&lt;h2 id=&#34;before，-after，transform（建议使用）&#34;&gt;&lt;a href=&#34;#before，-after，transform（建议使用）&#34; class=&#34;headerlink&#34; title=&#34;:before，:after，transform（建议使用）&#34;&gt;&lt;/a&gt;:before，:after，transform（建议使用）&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;原理：先把原来的border去掉，然后用:before,:after重做border，并 transform 的 scale 缩小一半，原先的元素相对定位，新做的 border 绝对定位。单条border样式：
+![在这里插入图片描述](https://img-blog.csdnimg.cn/51c044d048ca471cbba1ee191a079602.png)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/b22f3b580ef24d9b8bdb4dd16c3c543f.png&#34; alt=&#34;在这里插入图片描述&#34;&gt;&lt;/p&gt;
+&lt;p&gt;四条border样式：&lt;br&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/7018f0ec3639450bade5c58b41591e8a.png&#34; alt=&#34;在这里插入图片描述&#34;&gt;&lt;br&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/0e730e901fdc468189611efcc30d72ab.png&#34; alt=&#34;在这里插入图片描述&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;优点：
+        所有场景都能满足
+        支持圆角
+缺点：
+        对于已经使用伪类的元素，可能需要多层嵌套
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;svg（推荐使用）&#34;&gt;&lt;a href=&#34;#svg（推荐使用）&#34; class=&#34;headerlink&#34; title=&#34;svg（推荐使用）&#34;&gt;&lt;/a&gt;svg（推荐使用）&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;借助PostCSS的postcss-write-svg我们能直接使用border-image和background-image创建svg的1px边框
+![在这里插入图片描述](https://img-blog.csdnimg.cn/634a5b45e770438d8402f98ccf3c3546.png)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;border-image&#34;&gt;&lt;a href=&#34;#border-image&#34; class=&#34;headerlink&#34; title=&#34;border-image&#34;&gt;&lt;/a&gt;border-image&lt;/h2&gt;&lt;p&gt;准备一张符合要求的border-image&lt;br&gt;    &lt;img src=&#34;https://img-blog.csdnimg.cn/183e0b5cb20540e8ad0a6885c5c186f1.png&#34; alt=&#34;在这里插入图片描述&#34;&gt;&lt;/p&gt;
+&lt;p&gt;通常手机端的页面设计稿都是放大一倍的，如：为适应iphone retina，设计稿会设计成750*1334的分辨率，图片按照2倍大小切出来，在手机端看着就不会虚化，非常清晰。 同样，在使用border-image时，将border设计为物理1px，如下：&lt;/p&gt;
+&lt;pre class=&#34;line-numbers language-css&#34;&gt;&lt;code class=&#34;language-css&#34;&gt;&lt;span class=&#34;token selector&#34;&gt;&lt;span class=&#34;token class&#34;&gt;.border-image-1px&lt;/span&gt; &lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;token property&#34;&gt;border-width&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;px &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;token property&#34;&gt;border-image&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token url&#34;&gt;url(linenew.png)&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; stretch&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;token punctuation&#34;&gt;}&lt;/span&gt;
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上文是把border设置在边框的底部，所以使用的图片是2px高，上部的1px颜色为透明，下部的1px使用视觉规定的border的颜色。&lt;br&gt;如果边框底部和顶部同时需要border，可以使用下面的border-image：&lt;br&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/5af4d4c0fea343169c710f59ffebc536.png&#34; alt=&#34;在这里插入图片描述&#34;&gt;&lt;/p&gt;
+&lt;pre class=&#34;line-numbers language-css&#34;&gt;&lt;code class=&#34;language-css&#34;&gt;&lt;span class=&#34;token selector&#34;&gt;&lt;span class=&#34;token class&#34;&gt;.border-image-1px&lt;/span&gt; &lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;token property&#34;&gt;border-width&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;px &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;token property&#34;&gt;-wekit-border-image&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token url&#34;&gt;url(linenew.png)&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; stretch&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;token property&#34;&gt;border-image&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token url&#34;&gt;url(linenew.png)&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; stretch&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;token punctuation&#34;&gt;}&lt;/span&gt;
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在非视网膜屏上会出现border显示不出来的情况，需要做一下兼容：&lt;/p&gt;
+&lt;pre class=&#34;line-numbers language-css&#34;&gt;&lt;code class=&#34;language-css&#34;&gt;&lt;span class=&#34;token selector&#34;&gt;&lt;span class=&#34;token class&#34;&gt;.border-image-1px&lt;/span&gt; &lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;token property&#34;&gt;border-bottom&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;px solid &lt;span class=&#34;token hexcode&#34;&gt;#666&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;token punctuation&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;token atrule&#34;&gt;&lt;span class=&#34;token rule&#34;&gt;@media&lt;/span&gt; only screen and &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token property&#34;&gt;-wekit-min-device-pixel-radio&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;2&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;token selector&#34;&gt;&lt;span class=&#34;token class&#34;&gt;.border-image-1px&lt;/span&gt; &lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;token property&#34;&gt;border-bottom&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; none&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;token property&#34;&gt;border-width&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;px &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;token property&#34;&gt;-wekit-border-image&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token url&#34;&gt;url(linenew.png)&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; stretch&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;token property&#34;&gt;border-image&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token url&#34;&gt;url(linenew.png)&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; stretch&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;token punctuation&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;token punctuation&#34;&gt;}&lt;/span&gt;
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;优点：
+    可以设置单条,多条边框，没有性能瓶颈的问题
+缺点：
+    修改颜色麻烦, 需要替换图片；圆角需要特殊处理，并且边缘会模糊
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;background-image&#34;&gt;&lt;a href=&#34;#background-image&#34; class=&#34;headerlink&#34; title=&#34;background-image&#34;&gt;&lt;/a&gt;background-image&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;与上类似，只不过将border模拟在背景上
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;line-numbers language-css&#34;&gt;&lt;code class=&#34;language-css&#34;&gt;&lt;span class=&#34;token selector&#34;&gt;&lt;span class=&#34;token class&#34;&gt;.background-image-1px&lt;/span&gt; &lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;token property&#34;&gt;background&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token url&#34;&gt;url(linenew.png)&lt;/span&gt; repeat-x left bottom&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;token property&#34;&gt;-wekit-background-size&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;100%&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;px&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;token property&#34;&gt;background-size&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;100%&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;px&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;token punctuation&#34;&gt;}&lt;/span&gt;
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;优点：
+    可以设置单条,多条边框，没有性能瓶颈的问题。
+缺点：
+    修改颜色麻烦, 需要替换图片；圆角需要特殊处理，并且边缘会模糊。
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

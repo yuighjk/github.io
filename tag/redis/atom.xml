@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://example.com</id>
+    <title>FeiFei • Posts by &#34;redis&#34; tag</title>
+    <link href="http://example.com" />
+    <updated>2022-10-12T06:28:40.124Z</updated>
+    <category term="element ui" />
+    <category term="vue" />
+    <category term="javascript" />
+    <category term="redis" />
+    <category term="vue3" />
+    <category term="springboot" />
+    <category term="数据库" />
+    <category term="安全" />
+    <category term="TypeScript" />
+    <category term="移动端" />
+    <category term="css" />
+    <category term="element plus" />
+    <entry>
+        <id>http://example.com/2022/10/12/springboot-zheng-he-redis-shi-bao-cuo/</id>
+        <title>springboot整合redis时报错：Unable to connect to Redis； nested exception is io.lettuce.core.RedisConnect</title>
+        <link rel="alternate" href="http://example.com/2022/10/12/springboot-zheng-he-redis-shi-bao-cuo/"/>
+        <content type="html">&lt;p&gt;在网上试了好多，更改redis.windows.conf文件的方法没有效果，&lt;br&gt;最后发现在打开redis-server.exe出现闪退，然后寻找解决原因，发现是之前设置了密码，然后没有输密码，直接启动，导致出错。&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+&lt;p&gt;解决：在redis.windows.conf文件中，将&lt;/p&gt;
+&lt;pre class=&#34;line-numbers language-javascript&#34;&gt;&lt;code class=&#34;language-javascript&#34;&gt; requirepass foobared
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;解注，并重新设置密码&lt;/p&gt;
+&lt;pre class=&#34;line-numbers language-javascript&#34;&gt;&lt;code class=&#34;language-javascript&#34;&gt;requirepass &lt;span class=&#34;token number&#34;&gt;123456&lt;/span&gt;
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后在Windows黑窗口中，切换到redis文件夹目录，之后输入下面命令启动&lt;/p&gt;
+&lt;pre class=&#34;line-numbers language-javascript&#34;&gt;&lt;code class=&#34;language-javascript&#34;&gt;redis&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;server&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;exe redis&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;windows&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;conf
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;参考链接：&lt;br&gt;&lt;a href=&#34;https://blog.csdn.net/ls1850147551/article/details/116234724?utm_medium=distribute.pc_relevant_download.none-task-blog-baidujs-1.nonecase&amp;amp;depth_1-utm_source=distribute.pc_relevant_download.none-task-blog-baidujs-1.nonecase&#34;&gt;https://blog.csdn.net/ls1850147551/article/details/116234724?utm_medium=distribute.pc_relevant_download.none-task-blog-baidujs-1.nonecase&amp;amp;depth_1-utm_source=distribute.pc_relevant_download.none-task-blog-baidujs-1.nonecase&lt;/a&gt;&lt;/p&gt;
+</content>
+        <category term="redis" />
+        <updated>2022-10-12T06:28:40.124Z</updated>
+    </entry>
+</feed>
