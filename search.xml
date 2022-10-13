@@ -1697,4 +1697,110 @@ Object<span class="token punctuation">.</span><span class="token function">keys<
         <tag>Monorepo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>测试</title>
+    <url>/2022/10/13/ce-shi-ce-shi/</url>
+    <content><![CDATA[<h1 id="产生的原因："><a href="#产生的原因：" class="headerlink" title="产生的原因："></a>产生的原因：</h1><p>写代码时一般使用设备独立像素来对页面布局。而在设备像素比大于1的屏幕上，我们写的1px实际上是被多个物理像素渲染，这就会出现1px在有些屏幕上看起来很粗的现象：</p>
+<span id="more"></span>
+<h1 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h1><h2 id="小数值px"><a href="#小数值px" class="headerlink" title="小数值px"></a>小数值px</h2><p>设备像素比devicePixelRadio=2=物理像素/css像素=1px/0.5px，物理像素为1px，设置设备像素比=2，css像素设为0.5px，详情如下：<br><img src="https://img-blog.csdnimg.cn/6d8569f7209c489c920aea511361e6b1.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/e769e277e5044965b59ee54e78308db2.png" alt="在这里插入图片描述"></p>
+<pre><code>缺点：
+        兼容性差，目前之余IOS8+才支持，在IOS7及其以下、安卓系统都是显示0px。
+</code></pre>
+<h2 id="background-image，多背景渐变"><a href="#background-image，多背景渐变" class="headerlink" title="background-image，多背景渐变"></a>background-image，多背景渐变</h2><pre><code>设置1px的渐变背景
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/91d9655f372740bfbd77901cef44b1b9.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/df95fd164b0540d9b9808ca5be14e302.png" alt="在这里插入图片描述"></p>
+<h2 id="CSS3-box-shadow"><a href="#CSS3-box-shadow" class="headerlink" title="CSS3,box-shadow"></a>CSS3,box-shadow</h2><pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.shadow</span> </span><span class="token punctuation">{</span>
+    <span class="token property">-wedit-box-shadow</span><span class="token punctuation">:</span><span class="token number">0</span> <span class="token number">1</span>px <span class="token number">1</span>px -<span class="token number">1</span>px <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>, <span class="token number">0</span>, <span class="token number">0</span> ,<span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">1</span>px <span class="token number">1</span>px -<span class="token number">1</span>px <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>, <span class="token number">0</span>, <span class="token number">0</span> ,<span class="token number">0.5</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://img-blog.csdnimg.cn/5a790dd6e9de4eceb0d3ae0086cb3d1e.png" alt="在这里插入图片描述"></p>
+<pre><code>缺点：
+    颜色不好配置
+</code></pre>
+<h2 id="viewport与rem结合"><a href="#viewport与rem结合" class="headerlink" title="viewport与rem结合"></a>viewport与rem结合</h2><pre><code>当设备像素比=2，（中和一下，使物理像素=设备独立像素）
+</code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">"viewport"</span> content<span class="token operator">=</span><span class="token string">"initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no"</span><span class="token operator">&gt;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://img-blog.csdnimg.cn/cb7c14e4c2a442398fbdba43273879b2.png" alt="在这里插入图片描述"></p>
+<p>当设备像素比=3，将页面缩放1/3倍，</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">"viewport"</span> content<span class="token operator">=</span><span class="token string">"initial-scale=0.3333333333333333, maximum-scale=0.3333333333333333, minimum-scale=0.3333333333333333, user-scalable=no"</span><span class="token operator">&gt;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>任意设备像素比</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"> <span class="token keyword">const</span> scale <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">/</span> window<span class="token punctuation">.</span>devicePixelRatio<span class="token punctuation">;</span>
+            <span class="token keyword">const</span> viewport <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'meta[name="viewport"]'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>viewport<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                viewport <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'meta'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                viewport<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'viewport'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                window<span class="token punctuation">.</span>document<span class="token punctuation">.</span>head<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>viewport<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            viewport<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'content'</span><span class="token punctuation">,</span> <span class="token string">'width=device-width,user-scalable=no,initial-scale='</span> <span class="token operator">+</span> scale <span class="token operator">+</span> <span class="token string">',maximum-scale='</span> <span class="token operator">+</span> scale <span class="token operator">+</span> <span class="token string">',minimum-scale='</span> <span class="token operator">+</span> scale<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>意味着所有页面都需要用物理像素写，不现实，可以用flexible，vm,vh来帮助适配</p>
+<h2 id="before，-after，transform（建议使用）"><a href="#before，-after，transform（建议使用）" class="headerlink" title=":before，:after，transform（建议使用）"></a>:before，:after，transform（建议使用）</h2><pre><code>原理：先把原来的border去掉，然后用:before,:after重做border，并 transform 的 scale 缩小一半，原先的元素相对定位，新做的 border 绝对定位。单条border样式：
+![在这里插入图片描述](https://img-blog.csdnimg.cn/51c044d048ca471cbba1ee191a079602.png)
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/b22f3b580ef24d9b8bdb4dd16c3c543f.png" alt="在这里插入图片描述"></p>
+<p>四条border样式：<br><img src="https://img-blog.csdnimg.cn/7018f0ec3639450bade5c58b41591e8a.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/0e730e901fdc468189611efcc30d72ab.png" alt="在这里插入图片描述"></p>
+<pre><code>优点：
+        所有场景都能满足
+        支持圆角
+缺点：
+        对于已经使用伪类的元素，可能需要多层嵌套
+</code></pre>
+<h2 id="svg（推荐使用）"><a href="#svg（推荐使用）" class="headerlink" title="svg（推荐使用）"></a>svg（推荐使用）</h2><pre><code>借助PostCSS的postcss-write-svg我们能直接使用border-image和background-image创建svg的1px边框
+![在这里插入图片描述](https://img-blog.csdnimg.cn/634a5b45e770438d8402f98ccf3c3546.png)
+</code></pre>
+<h2 id="border-image"><a href="#border-image" class="headerlink" title="border-image"></a>border-image</h2><p>准备一张符合要求的border-image<br>    <img src="https://img-blog.csdnimg.cn/183e0b5cb20540e8ad0a6885c5c186f1.png" alt="在这里插入图片描述"></p>
+<p>通常手机端的页面设计稿都是放大一倍的，如：为适应iphone retina，设计稿会设计成750*1334的分辨率，图片按照2倍大小切出来，在手机端看着就不会虚化，非常清晰。 同样，在使用border-image时，将border设计为物理1px，如下：</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.border-image-1px</span> </span><span class="token punctuation">{</span>
+    <span class="token property">border-width</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span>px <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">border-image</span><span class="token punctuation">:</span><span class="token url">url(linenew.png)</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">2</span> <span class="token number">0</span> stretch<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上文是把border设置在边框的底部，所以使用的图片是2px高，上部的1px颜色为透明，下部的1px使用视觉规定的border的颜色。<br>如果边框底部和顶部同时需要border，可以使用下面的border-image：<br><img src="https://img-blog.csdnimg.cn/5af4d4c0fea343169c710f59ffebc536.png" alt="在这里插入图片描述"></p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.border-image-1px</span> </span><span class="token punctuation">{</span>
+    <span class="token property">border-width</span><span class="token punctuation">:</span> <span class="token number">1</span>px <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">-wekit-border-image</span><span class="token punctuation">:</span><span class="token url">url(linenew.png)</span> <span class="token number">2</span> <span class="token number">0</span> stretch<span class="token punctuation">;</span>
+    <span class="token property">border-image</span><span class="token punctuation">:</span><span class="token url">url(linenew.png)</span> <span class="token number">2</span> <span class="token number">0</span> stretch<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在非视网膜屏上会出现border显示不出来的情况，需要做一下兼容：</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.border-image-1px</span> </span><span class="token punctuation">{</span>
+    <span class="token property">border-bottom</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid <span class="token hexcode">#666</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@media</span> only screen and <span class="token punctuation">(</span><span class="token property">-wekit-min-device-pixel-radio</span><span class="token punctuation">:</span>2<span class="token punctuation">)</span></span><span class="token punctuation">{</span>
+    <span class="token selector"><span class="token class">.border-image-1px</span> </span><span class="token punctuation">{</span>
+        <span class="token property">border-bottom</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+        <span class="token property">border-width</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span>px <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">-wekit-border-image</span><span class="token punctuation">:</span><span class="token url">url(linenew.png)</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">2</span> <span class="token number">0</span> stretch<span class="token punctuation">;</span>
+        <span class="token property">border-image</span><span class="token punctuation">:</span><span class="token url">url(linenew.png)</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">2</span> <span class="token number">0</span> stretch<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>优点：
+    可以设置单条,多条边框，没有性能瓶颈的问题
+缺点：
+    修改颜色麻烦, 需要替换图片；圆角需要特殊处理，并且边缘会模糊
+</code></pre>
+<h2 id="background-image"><a href="#background-image" class="headerlink" title="background-image"></a>background-image</h2><pre><code>与上类似，只不过将border模拟在背景上
+</code></pre>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.background-image-1px</span> </span><span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token url">url(linenew.png)</span> repeat-x left bottom<span class="token punctuation">;</span>
+    <span class="token property">-wekit-background-size</span><span class="token punctuation">:</span> <span class="token number">100%</span> <span class="token number">1</span>px<span class="token punctuation">;</span>
+    <span class="token property">background-size</span><span class="token punctuation">:</span> <span class="token number">100%</span> <span class="token number">1</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>优点：
+    可以设置单条,多条边框，没有性能瓶颈的问题。
+缺点：
+    修改颜色麻烦, 需要替换图片；圆角需要特殊处理，并且边缘会模糊。
+</code></pre>
+]]></content>
+      <tags>
+        <tag>javascript</tag>
+        <tag>移动端</tag>
+        <tag>css</tag>
+      </tags>
+  </entry>
 </search>
