@@ -16,6 +16,11 @@
     <category term="移动端" />
     <category term="css" />
     <category term="element plus" />
+    <category term="npm" />
+    <category term="yarn" />
+    <category term="pnpm" />
+    <category term="Workspace" />
+    <category term="Monorepo" />
     <entry>
         <id>http://example.com/2022/10/12/element-plus-dong-tai-yin-ru-tu-biao/</id>
         <title>element plus动态引入图标</title>

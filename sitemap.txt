@@ -1,3 +1,5 @@
+http://example.com/2022/10/13/npm-yarn-pnpm-cnpm-dui-bi-qi-you-lie-shi/
+http://example.com/2022/10/12/package.json-he-package-lock.json-xiang-jie/
 http://example.com/2022/10/12/vue3-mian-bao-xie-dao-hang-de-zhi-zuo/
 http://example.com/2022/10/12/element-plus-dong-tai-yin-ru-tu-biao/
 http://example.com/2022/10/12/vue3-ts-tong-guo-lodash-shi-xian-fang-dou-jie-liu/
@@ -30,3 +32,8 @@ http://example.com/tags/TypeScript/
 http://example.com/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/
 http://example.com/tags/css/
 http://example.com/tags/element-plus/
+http://example.com/tags/npm/
+http://example.com/tags/yarn/
+http://example.com/tags/pnpm/
+http://example.com/tags/Workspace/
+http://example.com/tags/Monorepo/

@@ -16,6 +16,11 @@
     <category term="移动端" />
     <category term="css" />
     <category term="element plus" />
+    <category term="npm" />
+    <category term="yarn" />
+    <category term="pnpm" />
+    <category term="Workspace" />
+    <category term="Monorepo" />
     <entry>
         <id>http://example.com/2022/10/12/security-zi-ding-yi-deng-lu-ye-mian/</id>
         <title>security自定义登录页面</title>

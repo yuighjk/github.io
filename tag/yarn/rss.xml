@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>FeiFei • Posts by &#34;yarn&#34; tag</title>
+        <link>http://example.com</link>
+        <description>FeiFei 的博客</description>
+        <language>zh-CN</language>
+        <pubDate>Thu, 13 Oct 2022 10:59:36 +0800</pubDate>
+        <lastBuildDate>Thu, 13 Oct 2022 10:59:36 +0800</lastBuildDate>
+        <category>element ui</category>
+        <category>vue</category>
+        <category>javascript</category>
+        <category>redis</category>
+        <category>vue3</category>
+        <category>springboot</category>
+        <category>数据库</category>
+        <category>安全</category>
+        <category>TypeScript</category>
+        <category>移动端</category>
+        <category>css</category>
+        <category>element plus</category>
+        <category>npm</category>
+        <category>yarn</category>
+        <category>pnpm</category>
+        <category>Workspace</category>
+        <category>Monorepo</category>
+        <item>
+            <guid isPermalink="true">http://example.com/2022/10/13/npm-yarn-pnpm-cnpm-dui-bi-qi-you-lie-shi/</guid>
+            <title>npm、yarn、pnpm、cnpm对比其优劣势</title>
+            <link>http://example.com/2022/10/13/npm-yarn-pnpm-cnpm-dui-bi-qi-you-lie-shi/</link>
+            <category>npm</category>
+            <category>yarn</category>
+            <category>pnpm</category>
+            <category>Workspace</category>
+            <category>Monorepo</category>
+            <pubDate>Thu, 13 Oct 2022 10:59:36 +0800</pubDate>
+            <description><![CDATA[ &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h1 id=&#34;npm，yarn，cnpm，pnpm的介绍&#34;&gt;&lt;a href=&#34;#npm，yarn，cnpm，pnpm的介绍&#34; class=&#34;headerlink&#34; title=&#34;npm，yarn，cnpm，pnpm的介绍&#34;&gt;&lt;/a&gt;npm，yarn，cnpm，pnpm的介绍&lt;/h1&gt;&lt;h2 id=&#34;npm&#34;&gt;&lt;a href=&#34;#npm&#34; class=&#34;headerlink&#34; title=&#34;npm&#34;&gt;&lt;/a&gt;npm&lt;/h2&gt;&lt;p&gt;首先说一下Node.js，简单的说 Node.js 就是运行在服务端的 JavaScript。node通过更改连接到服务器的方式，可以处理高并发任务。&lt;/p&gt;
+&lt;p&gt;npm:   nodejs的包管理器，用于node插件管理（包括安装、卸载、管理依赖等）&lt;/p&gt;
+&lt;p&gt;npm使用一个名为&lt;code&gt;package.json&lt;/code&gt;的文件，用户可以通过&lt;code&gt;npm install --save&lt;/code&gt;命令把项目里所有的依赖项保存在这个文件里。&lt;/p&gt;
+&lt;p&gt;npm安装速度慢的一个重要原因：npm远程服务器在国外，必须首先遍历所有的项目依赖关系，然后再决定如何生成扁平化的node_modules结构。不过，npm有本地缓存，它保存了已经下载的每个版本的压缩包，缓存可以减少安装时间。&lt;/p&gt;
+&lt;h3 id=&#34;安装单个npm包：&#34;&gt;&lt;a href=&#34;#安装单个npm包：&#34; class=&#34;headerlink&#34; title=&#34;安装单个npm包：&#34;&gt;&lt;/a&gt;安装单个npm包：&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/44a32bd7c0ee45c59138fb827c5e4f2d.png&#34; alt=&#34;[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-eUZR2oLH-1665560508928)(https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c9054e9a-47b2-4488-b489-6d14c1dc0204/Untitled.png)]&#34;&gt;&lt;/p&gt;
+&lt;p&gt;devDependencies：通常是开发的工具（eg:测试用的库），开发环境的依赖&lt;/p&gt;
+&lt;p&gt;dependencies：与生产环境中应用程序相关的&lt;/p&gt;
+&lt;p&gt;两者的区别在普通项目中，两者都安装，程序才能跑起来（因为devDependencies一般包含程序运行环境依赖）；纯node项目，只安装dependencies就可以运行项目了，而安装了 &lt;code&gt;devDependencies&lt;/code&gt;后，就会让编辑器的 &lt;code&gt;eslint&lt;/code&gt;检测插件开始工作，或者是可以用 &lt;code&gt;jest&lt;/code&gt;进行单元测试：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/b78398b007e94877984683bb522f8fdb.png&#34; alt=&#34;[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-eGIiHojD-1665560508929)(https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6e8634cc-3f12-42f8-845f-325913194496/Untitled.png)]&#34;&gt;&lt;/p&gt;
+&lt;p&gt;是真正意义上的开发环境与生产环境分离。&lt;/p&gt;
+&lt;h3 id=&#34;npm使用方法：&#34;&gt;&lt;a href=&#34;#npm使用方法：&#34; class=&#34;headerlink&#34; title=&#34;npm使用方法：&#34;&gt;&lt;/a&gt;npm使用方法：&lt;/h3&gt;&lt;p&gt;第一种：&lt;/p&gt;
+&lt;p&gt;直接安装cnpm 安装淘宝提供的cnpm，并更改服务器地址为淘宝的国内地址， 命令：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm install -g cnpm --registry=https://registry.npm.taobao.org&lt;/code&gt;，以后安装直接采用&lt;code&gt;cpm&lt;/code&gt;替代&lt;code&gt;npm&lt;/code&gt;， 例如原生npm命令为：&lt;code&gt;npm install uniq --save&lt;/code&gt;，cnpm命令为：&lt;code&gt;cnpm install uniq --save&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;第二种：&lt;/p&gt;
+&lt;p&gt;替换npm仓库地址为淘宝镜像地址（推荐） 命令：&lt;code&gt;npm config set registry https://registry.npm.taobao.org&lt;/code&gt;， 查看是否更改成功：&lt;code&gt;npm config get registry&lt;/code&gt;，以后安装时，依然用npm命令，但是实际是从淘宝国内服务器下载的&lt;/p&gt;
+&lt;h2 id=&#34;yarn&#34;&gt;&lt;a href=&#34;#yarn&#34; class=&#34;headerlink&#34; title=&#34;yarn&#34;&gt;&lt;/a&gt;yarn&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://yarn.bootcss.com/docs/install/#windows-stable&#34;&gt;安装 | Yarn 中文文档 (bootcss.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;快速、可靠、安全的依赖管理工具。&lt;/p&gt;
+&lt;p&gt;一开始是为了解决由于语义版本控制而导致npm安装的不确定的问题，每次安装都生成&lt;code&gt;yarn.lock&lt;/code&gt;文件，&lt;code&gt;yarn.lock&lt;/code&gt;&lt;br&gt;文件还包含要安装的内容的校验和，以确保使用的库的版本相同。&lt;/p&gt;
+&lt;h3 id=&#34;yarn的改进：&#34;&gt;&lt;a href=&#34;#yarn的改进：&#34; class=&#34;headerlink&#34; title=&#34;yarn的改进：&#34;&gt;&lt;/a&gt;yarn的改进：&lt;/h3&gt;&lt;p&gt;运行速度得到了显著的提升&lt;/p&gt;
+&lt;p&gt;像npm一样，yarn使用本地缓存。与npm不同的是，yarn无需互联网连接就能安装本地缓存的依赖项，它提供了&lt;strong&gt;离线模式&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;yarn的workspace&#34;&gt;&lt;a href=&#34;#yarn的workspace&#34; class=&#34;headerlink&#34; title=&#34;yarn的workspace&#34;&gt;&lt;/a&gt;yarn的workspace&lt;/h3&gt;&lt;p&gt;Yarn Workspaces（工作区）是Yarn提供的&lt;code&gt;monorepo&lt;/code&gt;的依赖管理机制，从Yarn 1.0开始默认支持，用于在代码仓库的根目录下管理多个package的依赖。&lt;/p&gt;
+&lt;p&gt;Workspace 能更好的统一管理有多个项目的仓库，既可在每个项目下使用独立的 package.json 管理依赖，又可便利的享受一条 yarn命令安装或者升级所有依赖等。更重要的是可以使多个项目共享同一个 &lt;code&gt;node_modules&lt;/code&gt;目录，提升开发效率和降低磁盘空间占用。&lt;/p&gt;
+&lt;h2 id=&#34;pnpm&#34;&gt;&lt;a href=&#34;#pnpm&#34; class=&#34;headerlink&#34; title=&#34;pnpm&#34;&gt;&lt;/a&gt;pnpm&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://pnpm.io/&#34;&gt;Fast, disk space efficient package manager | pnpm官网&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;全称是 “Performant NPM”，即高性能的 npm。利用硬链接和符号链接来避免复制本地缓存源文件，继承了yarn的所有优点，包括离线模式和确定性安装&lt;/p&gt;
+&lt;h3 id=&#34;特点：速度快，节约磁盘空间，安全性高&#34;&gt;&lt;a href=&#34;#特点：速度快，节约磁盘空间，安全性高&#34; class=&#34;headerlink&#34; title=&#34;特点：速度快，节约磁盘空间，安全性高&#34;&gt;&lt;/a&gt;特点：速度快，节约磁盘空间，安全性高&lt;/h3&gt;&lt;h3 id=&#34;高效利用磁盘空间&#34;&gt;&lt;a href=&#34;#高效利用磁盘空间&#34; class=&#34;headerlink&#34; title=&#34;高效利用磁盘空间&#34;&gt;&lt;/a&gt;高效利用磁盘空间&lt;/h3&gt;&lt;p&gt;内部基于内容寻址的文件系统存储磁盘上所有的文件：&lt;/p&gt;
+&lt;p&gt;这个文件好处在于：&lt;/p&gt;
+&lt;p&gt;1.不会重复安装同一个包。设想一下，假如公司的每个项目都用了 vue 全家桶，那么每个项目都需要安装 vue、vue-router、vuex、axios 等几乎相同的库，如果有 100 个项目，那就要重复安装 100 遍！！非常耗费磁盘空间。&lt;/p&gt;
+&lt;p&gt;2.即使包的不同版本，pnpm也会极大程度的复用之前版本的代码。举个例子，比如 lodash 有 100 个文件，更新版本之后多了一个文件，那么磁盘当中并不会重新写入 101 个文件，而是保留原来的 100 个文件的 &lt;code&gt;hardlink&lt;/code&gt;，仅仅写入那&lt;code&gt;一个新增的文件&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;支持-monorepo&#34;&gt;&lt;a href=&#34;#支持-monorepo&#34; class=&#34;headerlink&#34; title=&#34;支持 monorepo&#34;&gt;&lt;/a&gt;支持 monorepo&lt;/h3&gt;&lt;p&gt;对于多个项目的管理，一般用多个git仓库。但是monorepo的宗旨就是用一个git仓库管理多个子项目，所有子项目都存放在根目录的&lt;code&gt;packages&lt;/code&gt;目录下，那么一个子项目就代表一个&lt;code&gt;package&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果你之前没接触过 monorepo 的概念，建议仔细看看&lt;a href=&#34;https://link.juejin.cn/?target=https://www.perforce.com/blog/vcs/what-monorepo&#34;&gt;这篇文章&lt;/a&gt;以及开源的 monorepo 管理工具&lt;a href=&#34;https://link.juejin.cn/?target=https://github.com/lerna/lerna%23readme&#34;&gt;lerna&lt;/a&gt;，项目目录结构可以参考一下 &lt;a href=&#34;https://link.juejin.cn/?target=https://github.com/babel/babel&#34;&gt;babel 仓库&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;pnpm还保留了非扁平化的node_modules文件夹，避免了扁平化node_modules都带来的幻影依赖，依赖分身的问题。&lt;/p&gt;
+&lt;p&gt;安装可以使用npm安装：npm i -g pnpm&lt;/p&gt;
+&lt;h3 id=&#34;pnpm-的-node-modules&#34;&gt;&lt;a href=&#34;#pnpm-的-node-modules&#34; class=&#34;headerlink&#34; title=&#34;pnpm 的 node_modules&#34;&gt;&lt;/a&gt;pnpm 的 node_modules&lt;/h3&gt;&lt;p&gt;与依赖提升和扁平化的 node_modules 不同，pnpm 引入了另一套依赖管理策略：&lt;a href=&#34;https://cloud.tencent.com/developer/article/2047247&#34;&gt;内容寻址存储&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;cnpm&#34;&gt;&lt;a href=&#34;#cnpm&#34; class=&#34;headerlink&#34; title=&#34;cnpm&#34;&gt;&lt;/a&gt;cnpm&lt;/h2&gt;&lt;p&gt;与npm用法完全一致&lt;/p&gt;
+&lt;p&gt;npm安装插件是从国外服务器下载，受网络影响大，可能出现异常。淘宝为我们搭建了一个国内的npm服务器cnpm，它目前是每隔10分钟将国外npm仓库的所有内容“搬运”回国内的服务器上，这样我们直接访问淘宝的国内服务器就可以了.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;cnpm 比 npm 快多了&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;cnpm 没有 package-lock.json&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;cnpm&lt;/code&gt;最大的隐患：安装时不会产生 &lt;code&gt;package-lock.json&lt;/code&gt;，并且项目中即使有 &lt;code&gt;package-lock.json&lt;/code&gt;，&lt;code&gt;cnpm&lt;/code&gt;也是不管不顾的，只读取 &lt;code&gt;package.json&lt;/code&gt;。阿hi有一个因哈UN就是用的包不一定遵循&lt;code&gt;Semver&lt;/code&gt;规范。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;有些依赖包用不了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;有些依赖包用 cnpm 安装就不能用，用 npm 安装就可以用，这个问题估计和 &lt;code&gt;cnpm&lt;/code&gt;包的使用软链接的方式有关系（并不确定）。&lt;/p&gt;
+&lt;p&gt;cnpm 和 npm 混用，导致包挂了，这个可以确定是 &lt;code&gt;cnpm&lt;/code&gt;使用软链接的问题。所以，还是尽量不要混用吧。&lt;/p&gt;
+&lt;p&gt;能用 npm 最好用 npm，公司内部的 &lt;code&gt;私有镜像源&lt;/code&gt;也建议做成 &lt;code&gt;npm&lt;/code&gt;，毕竟 &lt;code&gt;cnpm&lt;/code&gt; 还是存在一些隐患。&lt;/p&gt;
+&lt;h2 id=&#34;扁平化的node-modules&#34;&gt;&lt;a href=&#34;#扁平化的node-modules&#34; class=&#34;headerlink&#34; title=&#34;扁平化的node_modules&#34;&gt;&lt;/a&gt;扁平化的node_modules&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;node_modules
+├── A
+│   └── node_modules
+│       └── foo
+└── B
+    └── node_modules
+        └── foo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;最初，npm就简单通过依赖去递归安装包，A，B都依赖foo，那么就会有两份foo安装。为节省空间，采用了扁平化的node_modules。这样，foo会被提升到顶层，同一个包只会有一份。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;node_modules
+├── A
+├── B
+└── foo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;但是会带来的问题是引入混乱，扁平化结构可以直接引用foo，但实际上并没有直接指定依赖foo，而是有层级关系，导致了引入上的错乱。如果A,B都不依赖foo，包会报错。&lt;/p&gt;
+&lt;p&gt;导致的问题：&lt;/p&gt;
+&lt;p&gt;幻影依赖：项目代码引用的某个包没有直接定义在 &lt;code&gt;package.json&lt;/code&gt;中，而是作为子依赖被某个包顺带安装了。代码里依赖幻影依赖的最大隐患是，对包的语义化控制不能穿透到其子包，也就是包 &lt;code&gt;a@patch&lt;/code&gt;的改动可能意味着其子依赖包 &lt;code&gt;b@major&lt;/code&gt;&lt;br&gt;级别的 Break Change。（也就是说如果包改变了，那么被依赖的包就会破碎，出错）&lt;/p&gt;
+&lt;p&gt;但还有一种更难以解决的幻影依赖问题，即用户在 Monorepo 项目根目录安装了某个包，这个包可能被某个子 Package 内的代码寻址到，要彻底解决这个问题，需要配合使用 Rush，在工程上通过依赖问题检测来彻底解决。&lt;/p&gt;
+&lt;h1 id=&#34;对比其优劣势&#34;&gt;&lt;a href=&#34;#对比其优劣势&#34; class=&#34;headerlink&#34; title=&#34;对比其优劣势&#34;&gt;&lt;/a&gt;对比其优劣势&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;npm&lt;ul&gt;
+&lt;li&gt;node_modules扁平化结构&lt;/li&gt;
+&lt;li&gt;支持workspace，大部分开发人员用npm也能很好的打包&lt;/li&gt;
+&lt;li&gt;逐行安装（速度较慢）&lt;/li&gt;
+&lt;li&gt;问题：幻影依赖，依赖分身&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;yarn&lt;ul&gt;
+&lt;li&gt;node_modules扁平化解构&lt;/li&gt;
+&lt;li&gt;支持workspace，monorepo&lt;/li&gt;
+&lt;li&gt;yarn主要为了解决语义版本控制而导致npm安装不确定的问题，由yarn.lock文件，不过npm也出了package-lock文件&lt;/li&gt;
+&lt;li&gt;并行安装（速度较快）&lt;/li&gt;
+&lt;li&gt;问题：幻影依赖，依赖分身&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;pnpm&lt;ul&gt;
+&lt;li&gt;pnpm采用内存寻址存储的方法，通过软硬链接引用依赖，实现node_modules非扁平化结构，&lt;/li&gt;
+&lt;li&gt;支持workspace，monorepo，速度快，磁盘占用空间小（速度最快）&lt;/li&gt;
+&lt;li&gt;通过内容寻址存储解决了幻影依赖，依赖分身的问题，安全性高。&lt;/li&gt;
+&lt;li&gt;pnpm 的安装速度在大多数场景都比 npm 和 yarn 快 2 倍，节省的磁盘空间也更多。&lt;/li&gt;
+&lt;li&gt;问题：&lt;ul&gt;
+&lt;li&gt;因为依赖源文件是安装在 store 中，调试依赖或 patch-package 给依赖打补丁也不太方便，可能会影响其他项目。&lt;/li&gt;
+&lt;li&gt;由于 pnpm 创建的 node_modules 依赖软链接，因此在不支持软链接的环境中，无法使用 pnpm，比如 Electron 应用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/d127a3607f604d40b532c12f8ca631a8.png&#34; alt=&#34;在这里插入图片描述&#34;&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
